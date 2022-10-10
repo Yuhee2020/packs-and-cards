@@ -1,0 +1,38 @@
+import React from 'react';
+import TableCell from "@mui/material/TableCell";
+import {Rating, Stack} from "@mui/material";
+import TableRow from "@mui/material/TableRow";
+import {useAppSelector} from "../../../../utils/hooks";
+import {CardType} from "../../../../dal/cards-api";
+import {DeleteCardModal} from "../../modals/DeleteCard.Modal";
+import {EditCardModal} from "../../modals/EditCardModal";
+
+type PropsType={
+    card:CardType
+}
+
+export const CardsTableBody = ({card}:PropsType) => {
+
+    const isMyPack=useAppSelector(state =>state.cards.isMyPack)
+
+    return (
+            <TableRow
+                hover
+                key={card._id}
+                sx={{'&:last-child td, &:last-child th': {border: 0}}}
+            >
+                <TableCell align="left" width={"39%"}>{card.question}</TableCell>
+                <TableCell align="left" width={"36%"}>{card.answer}</TableCell>
+                <TableCell align="center" width={"14%"}>{card.updated.slice(0, 10)}</TableCell>
+                <TableCell align="left" width={"9%"}>
+                    <Rating size={"small"} name="grade" value={card.grade} readOnly />
+                </TableCell>
+                {isMyPack && <TableCell align="left" width={"2%"}>
+                    <Stack direction={"row"} spacing={0}>
+                        <EditCardModal card={card}/>
+                        <DeleteCardModal card={card}/>
+                    </Stack>
+                </TableCell>}
+            </TableRow>
+    );
+};
