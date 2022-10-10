@@ -47,6 +47,7 @@ const  Routing = () => {
                 <Route path={LEARN} element={<LearnPage/>}/>
                 <Route path={ERROR_404} element={<Error404/>}/>
                 <Route path="*" element={<Navigate to={"/404"}/>}/>
+
             </Routes>
         </div>
     )
