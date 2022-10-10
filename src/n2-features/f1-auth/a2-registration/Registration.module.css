@@ -1,0 +1,13 @@
+.form {
+    text-align: center;
+}
+.toolbar {
+    position: relative;
+}
+.button {
+    border-radius: 8px;
+    position: absolute;
+    right: 2px;
+
+}
+

@@ -1,0 +1,17 @@
+.nav {
+    text-decoration: none;
+    color: inherit;
+    cursor: pointer;
+}
+
+.slider-box {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.slider {
+    display: flex;
+    gap: 15px;
+    align-items: center;
+}
