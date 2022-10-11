@@ -15,7 +15,7 @@ export const ChangeAva = () => {
         if (e.target.files && e.target.files.length) {
             const file = e.target.files[0]
 
-            if (file.size < 210000) {
+            if (file.size < 300000) {
                 convertFileToBase64(file, (file64: string) => {
                     dispatch(changeAvatarAC(file64))
                     console.log('file64: ', file64)
