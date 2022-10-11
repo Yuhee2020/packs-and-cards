@@ -2,6 +2,11 @@
     text-decoration: none;
     color: inherit;
     cursor: pointer;
+    display: flex;
+    align-items: center;
+}
+.name{
+
 }
 
 .slider-box {
@@ -14,4 +19,10 @@
     display: flex;
     gap: 15px;
     align-items: center;
+}
+
+.cover{
+    width: 50px;
+
+    margin-right: 10px;
 }

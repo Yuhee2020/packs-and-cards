@@ -5,12 +5,12 @@ import {setAppErrorAC} from "../../../../bll/reducers/app-reducer";
 import {changeAvatarAC} from "../../../../bll/reducers/profile-reducer";
 import s from './Profile.module.css';
 import CameraAltIcon from '@mui/icons-material/CameraAlt';
+import {convertFileToBase64} from "../../../../utils/base64Converter";
 
 
 export const ChangeAva = () => {
     const dispatch = useAppDispatch();
     const uploadHandler = (e: ChangeEvent<HTMLInputElement>) => {
-        debugger
 
         if (e.target.files && e.target.files.length) {
             const file = e.target.files[0]
@@ -25,14 +25,6 @@ export const ChangeAva = () => {
 
             }
         }
-    }
-    const convertFileToBase64 = (file: File, callBack: (value: string) => void) => {
-        const reader = new FileReader();
-        reader.onloadend = () => {
-            const file64 = reader.result as string
-            callBack(file64)
-        }
-        reader.readAsDataURL(file)
     }
     return (
         <div className={s.bottomRight}>

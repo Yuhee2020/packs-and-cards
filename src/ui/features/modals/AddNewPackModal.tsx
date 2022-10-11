@@ -3,15 +3,20 @@ import {Button, Checkbox, FormControlLabel, Stack, TextField} from "@mui/materia
 import {createPackTC} from "../../../bll/reducers/packs-reducer";
 import {useAppDispatch} from "../../../utils/hooks";
 import {BasicModal} from "./BasicModal";
+import {setAppErrorAC} from "../../../bll/reducers/app-reducer";
+import {convertFileToBase64} from "../../../utils/base64Converter";
+import s from "./modal.module.css"
 
 export const AddNewPackModal = () => {
     const dispatch = useAppDispatch();
-    const [open, setOpen] = useState<boolean>(false);
-    const [value, setValue] = useState<string>('')
-    const [checked, setChecked] = React.useState<boolean>(false);
+    const [open, setOpen] = useState(false);
+    const [value, setValue] = useState('')
+    const [checked, setChecked] = React.useState(false);
+    const [cover, setCover] = React.useState("");
     const handleOpenClose = () => {
         setOpen(!open)
         setValue("")
+        setCover("")
     };
     const onChangeHandler = (e: ChangeEvent<HTMLTextAreaElement | HTMLInputElement>) => {
         setValue(e.currentTarget.value)
@@ -22,9 +27,26 @@ export const AddNewPackModal = () => {
     };
 
     const handleSave=()=>{
-        dispatch(createPackTC({name: value, private_: checked}))
+        dispatch(createPackTC({name: value, private_: checked, deckCover:cover}))
         handleOpenClose();
         setValue('')
+        setCover("")
+    }
+    const uploadHandler = (e: ChangeEvent<HTMLInputElement>) => {
+
+        if (e.target.files && e.target.files.length) {
+            const file = e.target.files[0]
+
+            if (file.size < 200000) {
+                convertFileToBase64(file, (file64: string) => {
+                    setCover(file64)
+                    console.log('file64: ', file64)
+                })
+            } else {
+                dispatch(setAppErrorAC("Incorrect file size, file must be less than 200 kb"))
+
+            }
+        }
     }
 
     return (
@@ -34,6 +56,17 @@ export const AddNewPackModal = () => {
                         open={open}
                         handleOpenClose={handleOpenClose}>
 
+                {cover
+                    ?<img className={s.cover} src={cover} alt={"cover"}/>
+                    :<Button fullWidth variant={"contained"} component="label">
+                    Download cover
+                    <input
+                        hidden
+                        accept="image/*"
+                        type="file"
+                        value={""}
+                        onChange={uploadHandler}/>
+                </Button>}
                 <div>
                     <TextField
                         fullWidth

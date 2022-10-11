@@ -5,9 +5,12 @@ import {Button, Checkbox, FormControlLabel, IconButton, Stack, TextField} from "
 import DriveFileRenameOutlineIcon from '@mui/icons-material/DriveFileRenameOutline';
 import {BasicModal} from "./BasicModal";
 import {PackType} from "../../../dal/packs-api";
+import s from "./modal.module.css";
+import {convertFileToBase64} from "../../../utils/base64Converter";
+import {setAppErrorAC} from "../../../bll/reducers/app-reducer";
 
 type PropsType = {
-    pack:PackType
+    pack: PackType
 }
 export const EditPackModal = ({pack}: PropsType) => {
 
@@ -15,6 +18,7 @@ export const EditPackModal = ({pack}: PropsType) => {
     const [open, setOpen] = useState<boolean>(false)
     const [value, setValue] = useState<string>(pack.name)
     const [checked, setChecked] = useState<boolean>(pack.private)
+    const [cover, setCover] = React.useState("");
     const handleOpenClose = () => {
         setOpen(!open)
     };
@@ -25,13 +29,31 @@ export const EditPackModal = ({pack}: PropsType) => {
         setChecked(e.target.checked)
     };
     const handleUpdate = () => {
-        dispatch(updatePackTC({_id: pack._id, name: value, private: checked}))
+        dispatch(updatePackTC({_id: pack._id, name: value, private: checked, deckCover: cover}))
         handleOpenClose()
+        setCover("")
     }
     const handleCancel = () => {
         handleOpenClose()
         setValue(pack.name)
         setChecked(pack.private)
+        setCover("")
+    }
+    const uploadHandler = (e: ChangeEvent<HTMLInputElement>) => {
+
+        if (e.target.files && e.target.files.length) {
+            const file = e.target.files[0]
+
+            if (file.size < 200000) {
+                convertFileToBase64(file, (file64: string) => {
+                    setCover(file64)
+                    console.log('file64: ', file64)
+                })
+            } else {
+                dispatch(setAppErrorAC("Incorrect file size, file must be less than 200 kb"))
+
+            }
+        }
     }
 
     return (
@@ -40,6 +62,27 @@ export const EditPackModal = ({pack}: PropsType) => {
             <BasicModal title={'Edit pack'}
                         open={open}
                         handleOpenClose={handleOpenClose}>
+                {cover && <img className={s.cover} src={cover} alt={"cover"}/>}
+                {pack.deckCover && !cover
+                    ? <Button fullWidth variant={"contained"} component="label">
+                            Load new cover
+                            <input
+                                hidden
+                                accept="image/*"
+                                type="file"
+                                value={""}
+                                onChange={uploadHandler}/>
+                        </Button>
+
+                    :<Button fullWidth variant={"contained"} component="label">
+                        Download cover
+                        <input
+                            hidden
+                            accept="image/*"
+                            type="file"
+                            value={""}
+                            onChange={uploadHandler}/>
+                    </Button>}
                 <div>
                     <TextField
                         fullWidth

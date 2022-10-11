@@ -14,6 +14,7 @@ export const PacksTableHead = () => {
     return (
         <TableHead style={{background: '#EFEFEF'}}>
             <TableRow>
+
                 <TableCell align="left">Name</TableCell>
                 <TableCell align="left">Cards</TableCell>
                 <TableCell align="center" onClick={sortHandler}><IconButton>{sort === "0updated" ?

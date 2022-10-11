@@ -36,12 +36,14 @@ export type PackType = {
     created: string
     updated: string
     private: boolean
+    deckCover?: string
 }
 
 export type UpdatePackDataType = {
     _id: string
     name: string
     private?: boolean
+    deckCover?:string
 }
 
 export type CreatePackDataType = {

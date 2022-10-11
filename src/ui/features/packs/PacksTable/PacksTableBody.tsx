@@ -6,17 +6,23 @@ import SchoolIcon from "@mui/icons-material/School";
 import {EditPackModal} from "../../modals/EditPackModal";
 import {DeletePackModal} from "../../modals/DeletePackModal";
 import {PackType} from "../../../../dal/packs-api";
-import {useAppSelector} from "../../../../utils/hooks";
+import {useAppDispatch, useAppSelector} from "../../../../utils/hooks";
+import cover from "../../../common/img/successful.png"
+import {setDefaultCoverAC} from "../../../../bll/reducers/packs-reducer";
 
 type PropsType = {
     pack: PackType
 }
 
 export const PacksTableBody = ({pack}: PropsType) => {
+    const dispatch = useAppDispatch();
     const navigate = useNavigate();
     const myId = useAppSelector(state => state.profile._id)
     const learnPackHandler = (packId: string) => {
         navigate(`/learn/${packId}`)
+    }
+    const onErrorHandler=()=>{
+        dispatch(setDefaultCoverAC(pack._id))
     }
     let day = pack.updated.slice(8, 10)
     let month = pack.updated.slice(5, 7)
@@ -27,13 +33,13 @@ export const PacksTableBody = ({pack}: PropsType) => {
             hover
             key={pack._id}
             sx={{'&:last-child td, &:last-child th': {border: 0}}}>
-            <TableCell align="left" width={"30%"}>
+            <TableCell align="left" width={"35%"} className={s.name}>
                 <NavLink className={s.nav} to={`/cards/${pack._id}`}>
-                    {pack.name}
+                    {<img onError={onErrorHandler} className={s.cover} src={pack.deckCover? pack.deckCover : cover } alt={"cover"}/>}{pack.name}
                 </NavLink>
             </TableCell>
             <TableCell align="left" width={"15%"}>{pack.cardsCount}</TableCell>
-            <TableCell align="center" width={"20%"}>{day + '.' + month + '.' + year}</TableCell>
+            <TableCell align="center" width={"15%"}>{day + '.' + month + '.' + year}</TableCell>
             <TableCell align="left" width={"20%"}>{pack.user_name}</TableCell>
             <TableCell align="right" width={"15%"}>
                 <IconButton

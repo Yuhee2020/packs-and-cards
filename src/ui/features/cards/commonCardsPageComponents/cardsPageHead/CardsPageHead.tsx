@@ -5,12 +5,14 @@ import {useAppSelector} from "../../../../../utils/hooks";
 import {Menushka} from "./Menushka";
 import {AddNewCardModal} from "../../../modals/AddNewCardModal";
 import {useNavigate} from "react-router-dom";
+import cov from "../../../../common/img/successful.png"
 
 
 export const CardsPageHead = () => {
 
     const cards = useAppSelector(state => state.cards)
     const userId = useAppSelector(state => state.profile._id)
+    const cover = useAppSelector(state => state.packs.cardPacks.find(el=>el._id===cards.cardsPackId)?.deckCover)
     const navigate = useNavigate()
     const learnPackHandler = (packId: string) => {
         navigate(`/learn/${packId}`)
@@ -19,7 +21,11 @@ export const CardsPageHead = () => {
     return (
         <>
             <Grid item xs={10}>
-                <Stack className={s.packName} direction={"row"}>{cards.packName}<Menushka/></Stack>
+                <Stack className={s.packName} direction={"row"} alignItems={"center"}>
+                    <img className={s.cover} src={cover? cover : cov} />
+                    {cards.packName}
+                    <Menushka/>
+                </Stack>
             </Grid>
             <Grid item xs={2}>
                 {userId !== cards.packUserId && cards.cards.length
