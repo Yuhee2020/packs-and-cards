@@ -1,5 +1,5 @@
 import React, {useState} from 'react';
-import {BasicModal2} from "./BasicModal2";
+import {BasicModal} from "./BasicModal";
 import {Button, FormGroup, Stack, TextField} from "@mui/material";
 import {addCardTC} from "../../../bll/reducers/cards-reducer";
 import {useAppDispatch} from "../../../utils/hooks";
@@ -32,7 +32,7 @@ export const AddNewCardModal = ({cardsPackId}: PropsType) => {
     return (
         <div>
             <Button onClick={handleOpenClose} variant="contained"> Add new card </Button>
-            <BasicModal2 title={'Add new Card'} open={open} handleOpenClose={handleOpenClose}>
+            <BasicModal title={'Add new Card'} open={open} handleOpenClose={handleOpenClose}>
                 <form onSubmit={formik.handleSubmit}>
                     <Stack direction={"column"} spacing={10} justifyContent={"space-evenly"}>
                         <FormGroup >
@@ -62,7 +62,7 @@ export const AddNewCardModal = ({cardsPackId}: PropsType) => {
                     </Stack>
                 </form>
 
-            </BasicModal2>
+            </BasicModal>
         </div>
     );
 };

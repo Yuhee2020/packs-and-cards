@@ -1,6 +1,6 @@
 import React from 'react';
 import {Container, Grid} from "@mui/material";
-import {BackToPackList} from "./BackToPackList";
+import {GoToPackList} from "./GoToPackList";
 import {CardsPageHead} from "./cardsPageHead/CardsPageHead";
 import s from "../Cards.module.css";
 import {useAppSelector} from "../../../../utils/hooks";
@@ -13,7 +13,7 @@ export const EmptyPack = () => {
 
     return (
         <Container maxWidth="lg">
-            <BackToPackList/>
+            <GoToPackList/>
             <Grid container spacing={3} marginTop={'8px'}>
                 <CardsPageHead/>
             </Grid>

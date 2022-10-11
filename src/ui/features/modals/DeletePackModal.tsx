@@ -1,46 +1,41 @@
 import React, {useState} from 'react';
 import {useAppDispatch} from "../../../utils/hooks";
 import {deletePackTC} from "../../../bll/reducers/packs-reducer";
-import {BasicModal} from "./BasicModal";
-import {Button, IconButton, Stack, TextField} from "@mui/material";
+import {Button, IconButton, Stack} from "@mui/material";
 import DeleteIcon from '@mui/icons-material/Delete';
-import Typography from "@mui/material/Typography";
+import {BasicModal} from "./BasicModal";
+import {PackType} from "../../../dal/packs-api";
 
 type PropsType = {
-    id: string
-    name: string
+    pack: PackType
 }
-export const DeletePackModal = ({id, name}: PropsType) => {
-    const [open, setOpen] = useState<boolean>(false);
-    const handleOpen = () => setOpen(true);
-    const handleClose = () => setOpen(false);
-
+export const DeletePackModal = ({pack}: PropsType) => {
     const dispatch = useAppDispatch();
-    const handleDelete = () => {
-        dispatch(deletePackTC(id))
-        handleClose();
+    const [open, setOpen] = useState<boolean>(false);
+    const handleOpenClose = () => setOpen(!open);
+    const deletePackHandler = () => {
+        dispatch(deletePackTC(pack._id))
+        handleOpenClose()
     }
 
+
     return (
-        <BasicModal title={'Edit pack'}
-                    button={<IconButton>
-                        <DeleteIcon fontSize="small"/>
-                    </IconButton>
-        }
-                    open={open}
-                    handleOpen={handleOpen}
-                    handleClose={handleClose}>
-            <div>
-                <Typography id="modal-modal-title" variant="h6" component="h6"
-                            margin={'8px'}>
-                    Do you really want to remove <b>{name}</b>?
-                    All cards will be deleted.
-                </Typography>
-                <Stack direction="row" spacing={2} style={{width: '100%'}} justifyContent={'space-around'}>
-                    <Button  variant="outlined" onClick={handleClose}>Cancel</Button>
-                    <Button  style={{background: '#FF3636'}} variant="contained" onClick={handleDelete}>Delete</Button>
+        <div>
+            <IconButton onClick={handleOpenClose}> <DeleteIcon fontSize="small"/> </IconButton>
+            <BasicModal title={'Delete pack'}
+                        open={open}
+                        handleOpenClose={handleOpenClose}
+            >
+                <Stack paddingTop={"10px"} direction={"column"} spacing={5} justifyContent={"space-evenly"}>
+                    <div>Do you really want to remove <b>{pack.name}</b>?
+                        All cards will be deleted.
+                    </div>
+                    <Stack direction="row" spacing={2} justifyContent={"space-between"}>
+                        <Button variant={'contained'} color={'primary'} onClick={handleOpenClose}>Cancel</Button>
+                        <Button variant={'contained'} color={'error'} onClick={deletePackHandler}>Delete</Button>
+                    </Stack>
                 </Stack>
-            </div>
-        </BasicModal>
+            </BasicModal>
+        </div>
     )
 }

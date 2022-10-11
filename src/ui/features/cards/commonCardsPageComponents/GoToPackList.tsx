@@ -6,11 +6,11 @@ import KeyboardBackspaceIcon from "@mui/icons-material/KeyboardBackspace";
 import {useAppDispatch} from "../../../../utils/hooks";
 import {searchCardsAC} from "../../../../bll/reducers/cards-reducer";
 
-export const BackToPackList = () => {
+export const GoToPackList = () => {
     const dispatch = useAppDispatch()
     return (
         <div className={s.backToPacks}>
-            <NavLink onClick={()=>{dispatch(searchCardsAC(""))}} to={PACKS}> <KeyboardBackspaceIcon sx={{position: 'relative', top: '6px'}}/> Back to Packs
+            <NavLink onClick={()=>{dispatch(searchCardsAC(""))}} to={PACKS}> <KeyboardBackspaceIcon sx={{position: 'relative', top: '6px'}}/> Go to Packs
                 List</NavLink>
         </div>
     );

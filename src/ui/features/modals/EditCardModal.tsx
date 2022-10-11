@@ -1,5 +1,5 @@
 import React, {useState} from 'react';
-import {BasicModal2} from "./BasicModal2";
+import {BasicModal} from "./BasicModal";
 import {Button, FormGroup, IconButton, Stack, TextField} from "@mui/material";
 import {updateCardTC} from "../../../bll/reducers/cards-reducer";
 import {useAppDispatch} from "../../../utils/hooks";
@@ -33,7 +33,7 @@ export const EditCardModal = ({card}: PropsType) => {
         <div>
             <IconButton onClick={handleOpenClose}><BorderColorIcon
                 fontSize={"small"}/></IconButton>
-            <BasicModal2 title={'Edit card'} open={open} handleOpenClose={handleOpenClose}>
+            <BasicModal title={'Edit card'} open={open} handleOpenClose={handleOpenClose}>
                 <form onSubmit={formik.handleSubmit}>
                     <Stack direction={"column"} spacing={10} justifyContent={"space-evenly"}>
                         <FormGroup >
@@ -63,7 +63,7 @@ export const EditCardModal = ({card}: PropsType) => {
                     </Stack>
                 </form>
 
-            </BasicModal2>
+            </BasicModal>
         </div>
     );
 };

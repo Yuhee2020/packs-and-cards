@@ -1,7 +1,7 @@
 import React, {useEffect} from 'react';
 import {useAppDispatch, useAppSelector, useDebounce} from "../../../utils/hooks";
 import {Container, Grid} from "@mui/material";
-import {BackToPackList} from "./commonCardsPageComponents/BackToPackList";
+import {GoToPackList} from "./commonCardsPageComponents/GoToPackList";
 import {CardsPageHead} from "./commonCardsPageComponents/cardsPageHead/CardsPageHead";
 import {CardSearch} from "./commonCardsPageComponents/CardSearch";
 import TableContainer from "@mui/material/TableContainer";
@@ -38,7 +38,7 @@ export const Cards = () => {
 
     return (
         <Container maxWidth="lg">
-            <BackToPackList/>
+            <GoToPackList/>
             <Grid container spacing={3} marginTop={'8px'}>
                 <CardsPageHead/>
                 <CardSearch/>

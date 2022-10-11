@@ -10,7 +10,7 @@ import {
 } from "@mui/material";
 import {useAppDispatch, useAppSelector} from "../../../utils/hooks";
 import {CardType} from "../../../dal/cards-api";
-import {BackToPackList} from "../cards/commonCardsPageComponents/BackToPackList";
+import {GoToPackList} from "../cards/commonCardsPageComponents/GoToPackList";
 import s from './LearnPage.module.css';
 import {useParams} from "react-router-dom";
 
@@ -74,7 +74,7 @@ const LearnPage = () => {
 
     return (
         <Container maxWidth="lg">
-            <BackToPackList/>
+            <GoToPackList/>
             <div className={s.learnContainer}>
                 <div className={s.packTitleContainer}>
                     <span>Learn "{packName}"</span>

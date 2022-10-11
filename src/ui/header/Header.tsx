@@ -13,7 +13,7 @@ const Header = () => {
         <AppBar position="static">
             <Toolbar>
                 <Typography variant="h6" component="div" sx={{ flexGrow: 1 }} fontSize={'24px'}>
-                    Learning Cards
+                    Packs and cards
                 </Typography>
                 {
                 isLoggedIn
@@ -29,7 +29,6 @@ const Header = () => {
             }
             </Toolbar>
         </AppBar>
-
     </Box>
     )
 }

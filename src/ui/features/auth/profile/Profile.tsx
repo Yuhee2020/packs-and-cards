@@ -8,7 +8,7 @@ import {LOGIN} from "../../../routing/Routing";
 import s from './Profile.module.css';
 import {Button, Grid, Paper, Typography} from "@mui/material";
 import LogoutIcon from '@mui/icons-material/Logout';
-import {BackToPackList} from "../../cards/commonCardsPageComponents/BackToPackList";
+import {GoToPackList} from "../../cards/commonCardsPageComponents/GoToPackList";
 import {ChangeAva} from "./ChangeAva";
 
 const Profile = React.memo(() => {
@@ -37,7 +37,7 @@ const Profile = React.memo(() => {
 
     return (
         <div className={s.container}>
-            <BackToPackList/>
+            <GoToPackList/>
             <Grid container justifyContent={'center'}>
                 <Grid item marginTop={'50px'} textAlign={"center"} width={'400px'}>
                     <Paper elevation={14} style={{padding: "30px"}}>

@@ -44,12 +44,12 @@ export const PacksTableBody = ({pack}: PropsType) => {
                 </IconButton>
                 {pack.user_id === myId &&
                     <div style={{display: 'inline-block'}}>
-                        <EditPackModal id={pack._id} name={pack.name} private_={pack.private}/>
+                        <EditPackModal pack={pack}/>
                     </div>
                 }
                 {pack.user_id === myId &&
                     <div style={{display: 'inline-block'}}>
-                        <DeletePackModal id={pack._id} name={pack.name}/>
+                        <DeletePackModal pack={pack}/>
                     </div>
                 }
                 {pack.user_id !== myId &&
