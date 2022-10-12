@@ -40,7 +40,6 @@ export const AddNewPackModal = () => {
             if (file.size < 200000) {
                 convertFileToBase64(file, (file64: string) => {
                     setCover(file64)
-                    console.log('file64: ', file64)
                 })
             } else {
                 dispatch(setAppErrorAC("Incorrect file size, file must be less than 200 kb"))

@@ -35,7 +35,7 @@ export const PacksTableBody = ({pack}: PropsType) => {
             sx={{'&:last-child td, &:last-child th': {border: 0}}}>
             <TableCell align="left" width={"35%"} className={s.name}>
                 <NavLink className={s.nav} to={`/cards/${pack._id}`}>
-                    {<img onError={onErrorHandler} className={s.cover} src={pack.deckCover? pack.deckCover : cover } alt={"cover"}/>}{pack.name}
+                    {<img onError={onErrorHandler} className={s.cover} src={pack.deckCover} alt={"cover"}/>}{pack.name}
                 </NavLink>
             </TableCell>
             <TableCell align="left" width={"15%"}>{pack.cardsCount}</TableCell>

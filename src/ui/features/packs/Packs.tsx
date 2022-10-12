@@ -32,7 +32,7 @@ const Packs = () => {
                 <Table sx={{minWidth: 650}} aria-label="simple table">
                     <PacksTableHead/>
                     <TableBody>
-                        {packs.map((pack) =><PacksTableBody pack={pack}/>)}
+                        {packs.map((pack,index) =><PacksTableBody pack={pack} key={index}/>)}
                     </TableBody>
                 </Table>
             </TableContainer>
