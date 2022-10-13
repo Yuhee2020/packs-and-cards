@@ -1,10 +1,11 @@
 {
   "name": "packs-and-cards",
+  "homepage": "https://yuhee2020.github.io/packs-and-cards",
   "version": "0.1.0",
   "private": true,
   "dependencies": {
     "@emotion/react": "^11.10.4",
-    "@emotion/styled": "^11.10.4" ,
+    "@emotion/styled": "^11.10.4",
     "@mui/icons-material": "^5.10.3",
     "@mui/material": "^5.10.5",
     "@mui/x-data-grid": "^5.17.4",
@@ -23,6 +24,8 @@
     "@types/uuid": "^8.3.4",
     "axios": "^0.27.2",
     "formik": "^2.2.9",
+    "gh": "^2.8.9",
+    "pages": "^0.0.16",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
     "react-redux": "^8.0.2",

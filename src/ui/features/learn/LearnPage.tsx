@@ -24,7 +24,6 @@ const getCard = (cards: CardType[]) => {
             return {sum: newSum, id: newSum < rand ? i : acc.id}
         }
         , {sum: 0, id: -1});
-
     return cards[res.id + 1];
 }
 
@@ -35,20 +34,16 @@ const LearnPage = () => {
     const cards = useAppSelector(state => state.cards.cards);
     const packName = useAppSelector(state => state.cards.packName);
     const {packId} = useParams();
-
     const [card, setCard] = useState<CardType>({
         _id: '',
         cardsPack_id: '',
-
         answer: '',
         question: '',
         grade: 0,
         shots: 0,
-
         type: '',
         rating: 0,
         user_id: '',
-
         created: '',
         updated: '',
     });
@@ -59,14 +54,11 @@ const LearnPage = () => {
             dispatch(getCardsTC(packId || '', true));
             setFirst(false);
         }
-
         if (cards.length > 0) setCard(getCard(cards));
     }, [dispatch, packId, cards, first]);
 
-
     const onNext = () => {
         setIsChecked(false);
-
         if (cards.length > 0) {
             dispatch(updateCardGradeTC(value, packId || '', card._id))
         }
@@ -82,16 +74,17 @@ const LearnPage = () => {
                 <Paper elevation={14} style={{padding: "30px", width: '350px'}}>
                     <div>
                         <div className={s.question}>
-                            <p><b>Question:</b> {card.question}</p>
+                            <p><b>Question:</b> {card.questionImg?
+                                <img className={s.qaImg} src={card.questionImg} alt={"question"}/> : card.question}</p>
                         </div>
                         <div className={s.attemptsNumber}>
                             <span>Number of attempts to answer a question: {card.shots}</span>
                         </div>
-
                         {isChecked && (
                             <>
                                 <div>
-                                    <p><b>Answer:</b> {card.answer}</p>
+                                    <p><b>Answer:</b> {card.answerImg?
+                                        <img className={s.qaImg} src={card.answerImg} alt={"question"}/>:card.answer}</p>
                                 </div>
 
                                 <FormControl>

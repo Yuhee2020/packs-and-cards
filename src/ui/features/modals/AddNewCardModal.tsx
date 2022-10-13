@@ -16,6 +16,7 @@ import {useAppDispatch} from "../../../utils/hooks";
 import {useFormik} from "formik";
 import {convertFileToBase64} from "../../../utils/base64Converter";
 import {setAppErrorAC} from "../../../bll/reducers/app-reducer";
+import s from "./modal.module.css"
 
 
 type PropsType = {
@@ -78,7 +79,7 @@ export const AddNewCardModal = ({cardsPackId}: PropsType) => {
                     <FormHelperText>Choose a question format</FormHelperText>
                 </FormControl>
                 <form onSubmit={formik.handleSubmit}>
-                    <Stack direction={"column"} spacing={10} justifyContent={"space-evenly"}>
+                    <Stack direction={"column"} spacing={3} justifyContent={"space-evenly"}>
                         {format === "Text"
                             ? <FormGroup>
                                 <TextField style={{margin: "10px 0"}}
@@ -95,9 +96,10 @@ export const AddNewCardModal = ({cardsPackId}: PropsType) => {
                                     {...formik.getFieldProps('answer')}
                                 />
                             </FormGroup>
-                            : <FormGroup>
+                            : <Stack direction={"column"} spacing={1} alignItems={"center"}>
+                                {formik.values.questionImg && <img className={s.qaImg} src={formik.values.questionImg} alt={"question"}/>}
                                 <Button fullWidth variant={"contained"} component="label">
-                                    Download cover
+                                    Download question
                                     <input
                                         hidden
                                         accept="image/*"
@@ -106,8 +108,9 @@ export const AddNewCardModal = ({cardsPackId}: PropsType) => {
                                         name={"questionImg"}
                                         />
                                 </Button>
+                                {formik.values.answerImg && <img className={s.qaImg} src={formik.values.answerImg} alt={"answer"}/>}
                                 <Button fullWidth variant={"contained"} component="label">
-                                    Download cover
+                                    Download answer
                                     <input
                                         hidden
                                         accept="image/*"
@@ -116,7 +119,7 @@ export const AddNewCardModal = ({cardsPackId}: PropsType) => {
                                         name={"answerImg"}
                                         />
                                 </Button>
-                            </FormGroup>}
+                            </Stack>}
                         <Stack direction={"row"} justifyContent={"space-between"}>
                             <Button variant={'contained'} style={{width: "100px"}} color={'inherit'}
                                     onClick={handleOpenClose}>
