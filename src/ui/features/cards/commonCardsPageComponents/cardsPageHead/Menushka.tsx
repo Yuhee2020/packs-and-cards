@@ -6,17 +6,16 @@ import ListItemIcon from '@mui/material/ListItemIcon';
 import IconButton from '@mui/material/IconButton';
 import Tooltip from '@mui/material/Tooltip';
 import GrainIcon from '@mui/icons-material/Grain';
-import BorderColorIcon from '@mui/icons-material/BorderColor';
-import DeleteOutlineIcon from '@mui/icons-material/DeleteOutline';
 import SchoolIcon from '@mui/icons-material/School';
-import {useAppDispatch, useAppSelector} from "../../../../../utils/hooks";
-import {deletePackTC, updatePackTC} from "../../../../../bll/reducers/packs-reducer";
-import {useNavigate} from "react-router-dom";
-import {PACKS} from "../../../../routing/Routing";
+import {useAppSelector} from "../../../../../utils/hooks";
+import {useNavigate, useParams} from "react-router-dom";
+import {EditPackModal} from "../../../modals/EditPackModal";
+import {DeletePackModal} from "../../../modals/DeletePackModal";
 
 export const Menushka = () => {
     const navigate = useNavigate()
-    const dispatch = useAppDispatch()
+    const {packId}=useParams()
+    const pack=useAppSelector(state => state.packs.cardPacks.find(p=>p._id===packId))
     const cards = useAppSelector(state => state.cards)
     const isMyPack = useAppSelector(state => state.cards.isMyPack)
     const [anchorEl, setAnchorEl] = useState<null | HTMLElement>(null);
@@ -26,13 +25,6 @@ export const Menushka = () => {
     };
     const handleClose = () => {
         setAnchorEl(null)
-    }
-    const updatePack = () => {
-        dispatch(updatePackTC({_id: cards.cardsPackId, name: "The best of the best"}))
-    }
-    const deletePack = () => {
-        dispatch(deletePackTC(cards.cardsPackId))
-        navigate(PACKS)
     }
     const learnPackHandler = (packId: string) => {
         navigate(`/learn/${packId}`)
@@ -59,7 +51,6 @@ export const Menushka = () => {
                 id="account-menu"
                 open={open}
                 onClose={handleClose}
-                onClick={handleClose}
                 PaperProps={{
                     elevation: 0,
                     sx: {
@@ -90,20 +81,10 @@ export const Menushka = () => {
                 anchorOrigin={{horizontal: 'right', vertical: 'bottom'}}
             >
                 <div key={"jjj"}>
-                {isMyPack && <><MenuItem
-                    onClick={updatePack}>
-                    <ListItemIcon>
-                        <BorderColorIcon fontSize="small"/>
-                    </ListItemIcon>
-                    Edit
-                </MenuItem>
-                    <MenuItem
-                        onClick={deletePack}>
-                        <ListItemIcon>
-                            <DeleteOutlineIcon fontSize="small"/>
-                        </ListItemIcon>
-                        Delete
-                    </MenuItem></>}
+                {isMyPack && pack && <>
+                        <EditPackModal pack={pack} text/>
+                        <DeletePackModal pack={pack} text/>
+                    </>}
                 {!!cards.cards.length && <MenuItem
                     onClick={() => learnPackHandler(cards.cardsPackId)}>
                     <ListItemIcon>

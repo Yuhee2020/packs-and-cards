@@ -8,11 +8,15 @@ import {PackType} from "../../../dal/packs-api";
 import s from "./modal.module.css";
 import {convertFileToBase64} from "../../../utils/base64Converter";
 import {setAppErrorAC} from "../../../bll/reducers/app-reducer";
+import BorderColorIcon from "@mui/icons-material/BorderColor";
+import ListItemIcon from "@mui/material/ListItemIcon";
+import MenuItem from "@mui/material/MenuItem";
 
 type PropsType = {
     pack: PackType
+    text?:boolean
 }
-export const EditPackModal = ({pack}: PropsType) => {
+export const EditPackModal = ({pack,text}: PropsType) => {
 
     const dispatch = useAppDispatch()
     const [open, setOpen] = useState<boolean>(false)
@@ -54,7 +58,14 @@ export const EditPackModal = ({pack}: PropsType) => {
 
     return (
         <div>
-            <IconButton onClick={handleOpenClose}><DriveFileRenameOutlineIcon fontSize="small"/></IconButton>
+            {text? <MenuItem onClick={handleOpenClose}>
+                <ListItemIcon>
+                    <BorderColorIcon fontSize="small"/>
+                </ListItemIcon>
+                Edit
+            </MenuItem>
+                :<IconButton onClick={handleOpenClose}><DriveFileRenameOutlineIcon fontSize="small"/></IconButton>
+                }
             <BasicModal title={'Edit pack'}
                         open={open}
                         handleOpenClose={handleOpenClose}>
