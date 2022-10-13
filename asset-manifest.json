@@ -1,0 +1,15 @@
+{
+  "files": {
+    "main.css": "/packs-and-cards/static/css/main.44e4b257.css",
+    "main.js": "/packs-and-cards/static/js/main.3bafd57a.js",
+    "static/js/787.c0ae58bc.chunk.js": "/packs-and-cards/static/js/787.c0ae58bc.chunk.js",
+    "index.html": "/packs-and-cards/index.html",
+    "main.44e4b257.css.map": "/packs-and-cards/static/css/main.44e4b257.css.map",
+    "main.3bafd57a.js.map": "/packs-and-cards/static/js/main.3bafd57a.js.map",
+    "787.c0ae58bc.chunk.js.map": "/packs-and-cards/static/js/787.c0ae58bc.chunk.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.44e4b257.css",
+    "static/js/main.3bafd57a.js"
+  ]
+}
