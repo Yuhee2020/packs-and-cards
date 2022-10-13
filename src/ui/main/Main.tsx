@@ -5,6 +5,7 @@ import {ErrorSnackbar} from "../common/ErrorSnackbar/ErrorSnackbar";
 import {Backdrop, CircularProgress} from "@mui/material";
 import {useAppSelector} from "../../utils/hooks";
 
+
 const Main = () => {
     const status = useAppSelector((state) => state.app.status)
     return (
