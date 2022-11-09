@@ -5,10 +5,10 @@ import s from "../Packs.module.css";
 import SchoolIcon from "@mui/icons-material/School";
 import {EditPackModal} from "../../modals/EditPackModal";
 import {DeletePackModal} from "../../modals/DeletePackModal";
-import {PackType} from "../../../../dal/packs-api";
+import {PackType} from "../../../../api/packs-api";
 import {useAppDispatch, useAppSelector} from "../../../../utils/hooks";
 import cover from "../../../common/img/successful.png"
-import {setDefaultCoverAC} from "../../../../bll/reducers/packs-reducer";
+import {setDefaultCoverAC} from "../../../../store/reducers/packs-reducer";
 
 type PropsType = {
     pack: PackType

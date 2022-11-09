@@ -14,7 +14,7 @@ import {
     TextField
 } from "@mui/material";
 import {useAppDispatch, useAppSelector} from "../../../../utils/hooks";
-import {setNewPasswordTC} from "../../../../bll/reducers/auth-reducer";
+import {setNewPasswordTC} from "../../../../store/reducers/auth-reducer";
 import {Visibility, VisibilityOff} from "@mui/icons-material";
 
 type FormikErrorType = {

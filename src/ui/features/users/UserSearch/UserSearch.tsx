@@ -1,33 +1,33 @@
 import React from 'react';
-import s from "../Cards.module.css";
 import {FormControl, Grid, InputAdornment, InputLabel, OutlinedInput} from "@mui/material";
 import SearchIcon from "@mui/icons-material/Search";
 import {useAppDispatch, useAppSelector} from "../../../../utils/hooks";
-import {searchCardsAC} from "../../../../store/reducers/cards-reducer";
+import {setUserNameAC} from "../../../../store/reducers/users-reducer";
 
-export const CardSearch = () => {
+export const UserSearch = () => {
     const dispatch = useAppDispatch()
-    const searchValue = useAppSelector(state => state.cards.search)
+    const userName = useAppSelector(state => state.users.userName)
     return (
         <Grid item xs={12}>
-            <div className={s.search}>
+            <div>
                 <FormControl fullWidth variant="outlined">
                     <InputLabel htmlFor="input-search">Provide your text</InputLabel>
                     <OutlinedInput
 
                         placeholder={"search"}
                         id="input-search"
-                        value={searchValue}
+                        value={userName}
                         onChange={(e) => {
-                            dispatch(searchCardsAC(e.currentTarget.value))
+                            dispatch(setUserNameAC(e.currentTarget.value))
                         }}
                         startAdornment={<InputAdornment position="start"><SearchIcon
                             color="disabled"/></InputAdornment>}
-                        label="Provide your text"
+                        label="Enter user name"
                     />
                 </FormControl>
             </div>
         </Grid>
     );
 };
+
 

@@ -11,6 +11,8 @@ import Error404 from "../common/Error404/404";
 import Packs from "../features/packs/Packs";
 import {Cards} from "../features/cards/Cards";
 import LearnPage from "../features/learn/LearnPage";
+import {Users} from "../features/users/Users";
+import {User} from "../features/users/user/User";
 
 
 export const ROOT = '/'
@@ -29,6 +31,8 @@ export const CARDS = '/cards/:packId'
 export const LEARN = '/learn/:packId'
 
 export const ERROR_404 = '/404'
+export const USER= '/users/:userId'
+export const USERS= '/users/'
 
 const  Routing = () => {
     return (
@@ -44,6 +48,8 @@ const  Routing = () => {
                 <Route path={PASSWORD_CHANGED} element={<PasswordIsChanged/>}/>
                 <Route path={PACKS} element={<Packs/>}/>
                 <Route path={CARDS} element={<Cards/>}/>
+                <Route path={USER} element={<User/>}/>
+                <Route path={USERS} element={<Users/>}/>
                 <Route path={LEARN} element={<LearnPage/>}/>
                 <Route path={ERROR_404} element={<Error404/>}/>
                 <Route path="*" element={<Navigate to={"/404"}/>}/>

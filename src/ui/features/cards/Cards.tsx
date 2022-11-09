@@ -8,7 +8,7 @@ import TableContainer from "@mui/material/TableContainer";
 import Paper from "@mui/material/Paper";
 import Table from "@mui/material/Table";
 import TableBody from "@mui/material/TableBody";
-import {getCardsTC} from "../../../bll/reducers/cards-reducer";
+import {getCardsTC} from "../../../store/reducers/cards-reducer";
 import {CardsPagination} from "./commonCardsPageComponents/CardsPagination";
 import {CardsTableHead} from "./commonCardsPageComponents/CardsTableHead";
 import {EmptyPack} from "./commonCardsPageComponents/EmptyPack";

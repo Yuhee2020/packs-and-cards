@@ -1,8 +1,8 @@
 import React, {ChangeEvent} from 'react';
 import {IconButton} from "@mui/material";
 import {useAppDispatch} from "../../../../utils/hooks";
-import {setAppErrorAC} from "../../../../bll/reducers/app-reducer";
-import {changeAvatarAC} from "../../../../bll/reducers/profile-reducer";
+import {setAppErrorAC} from "../../../../store/reducers/app-reducer";
+import {changeAvatarAC} from "../../../../store/reducers/profile-reducer";
 import s from './Profile.module.css';
 import CameraAltIcon from '@mui/icons-material/CameraAlt';
 import {convertFileToBase64} from "../../../../utils/base64Converter";

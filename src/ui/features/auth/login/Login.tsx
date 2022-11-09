@@ -1,6 +1,6 @@
 import React, {useEffect, useState} from "react";
 import {useFormik} from 'formik';
-import {loginTC} from "../../../../bll/reducers/auth-reducer";
+import {loginTC} from "../../../../store/reducers/auth-reducer";
 import {Navigate, NavLink} from 'react-router-dom';
 import {PASSWORD_RECOVERY, PROFILE, REGISTRATION} from "../../../routing/Routing";
 import {
@@ -18,7 +18,7 @@ import {
 } from "@mui/material";
 import {Visibility, VisibilityOff} from "@mui/icons-material";
 import {useAppDispatch, useAppSelector} from "../../../../utils/hooks";
-import {changePasswordRecoveryStatusAC} from "../../../../bll/reducers/auth-reducer";
+import {changePasswordRecoveryStatusAC} from "../../../../store/reducers/auth-reducer";
 
 
 type FormikErrorType = {

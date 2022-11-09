@@ -1,4 +1,4 @@
-import {GetPacksResponseType, packsAPI, PackType, UpdatePackDataType} from "../../dal/packs-api";
+import {GetPacksResponseType, packsAPI, PackType, UpdatePackDataType} from "../../api/packs-api";
 import {AppRootStateType, AppThunk} from "../store";
 import {setAppStatusAC} from "./app-reducer";
 import {AxiosError} from "axios";

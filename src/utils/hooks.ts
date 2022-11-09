@@ -1,5 +1,5 @@
 import { TypedUseSelectorHook, useDispatch, useSelector } from 'react-redux';
-import type { AppRootStateType, AppDispatch } from '../bll/store';
+import type { AppRootStateType, AppDispatch } from '../store/store';
 import { useEffect, useState } from 'react';
 
 // Use throughout your app instead of plain `useDispatch` and `useSelector`

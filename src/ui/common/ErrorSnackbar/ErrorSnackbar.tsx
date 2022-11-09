@@ -1,7 +1,7 @@
 import React, {SyntheticEvent} from 'react';
 import Snackbar, {SnackbarCloseReason} from '@mui/material/Snackbar';
 import MuiAlert, { AlertProps } from '@mui/material/Alert';
-import {setAppErrorAC} from "../../../bll/reducers/app-reducer";
+import {setAppErrorAC} from "../../../store/reducers/app-reducer";
 import {useAppDispatch, useAppSelector} from "../../../utils/hooks";
 
 

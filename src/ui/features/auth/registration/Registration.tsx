@@ -11,7 +11,7 @@ import {
 import {FormikErrors, useFormik} from "formik";
 import {Navigate, NavLink} from "react-router-dom";
 import {LOGIN} from "../../../routing/Routing";
-import {registrationTC} from "../../../../bll/reducers/auth-reducer";
+import {registrationTC} from "../../../../store/reducers/auth-reducer";
 import {Visibility, VisibilityOff} from "@mui/icons-material";
 import {useAppDispatch, useAppSelector} from "../../../../utils/hooks";
 

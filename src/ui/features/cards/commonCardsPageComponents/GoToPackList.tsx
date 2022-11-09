@@ -4,7 +4,7 @@ import {NavLink} from "react-router-dom";
 import {PACKS} from "../../../routing/Routing";
 import KeyboardBackspaceIcon from "@mui/icons-material/KeyboardBackspace";
 import {useAppDispatch} from "../../../../utils/hooks";
-import {searchCardsAC} from "../../../../bll/reducers/cards-reducer";
+import {searchCardsAC} from "../../../../store/reducers/cards-reducer";
 
 export const GoToPackList = () => {
     const dispatch = useAppDispatch()

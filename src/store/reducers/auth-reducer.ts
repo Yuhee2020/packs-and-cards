@@ -1,4 +1,4 @@
-import {authAPI, LoginDataType} from "../../dal/auth-api";
+import {authAPI, LoginDataType} from "../../api/auth-api";
 import {setProfileAC} from "./profile-reducer";
 import {AppDispatch} from "../store";
 import {handleServerNetworkError} from "../../utils/error-utils";

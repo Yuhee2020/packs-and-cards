@@ -1,14 +1,14 @@
 import React, {ChangeEvent, useState} from 'react';
 import {BasicModal} from "./BasicModal";
 import {Button, FormGroup, IconButton, Stack, TextField} from "@mui/material";
-import {updateCardTC} from "../../../bll/reducers/cards-reducer";
+import {updateCardTC} from "../../../store/reducers/cards-reducer";
 import {useAppDispatch} from "../../../utils/hooks";
 import {useFormik} from "formik";
 import BorderColorIcon from "@mui/icons-material/BorderColor";
-import {CardType} from "../../../dal/cards-api";
+import {CardType} from "../../../api/cards-api";
 import s from "./modal.module.css";
 import {convertFileToBase64} from "../../../utils/base64Converter";
-import {setAppErrorAC} from "../../../bll/reducers/app-reducer";
+import {setAppErrorAC} from "../../../store/reducers/app-reducer";
 
 
 type PropsType = {

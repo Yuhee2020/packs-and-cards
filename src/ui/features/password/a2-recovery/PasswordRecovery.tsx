@@ -3,7 +3,7 @@ import {useFormik} from 'formik';
 import {Navigate, NavLink} from 'react-router-dom'
 import {LOGIN, PASSWORD_RECOVERED} from "../../../routing/Routing";
 import {Button, FormControl, FormGroup, FormLabel, Grid, Paper, TextField} from "@mui/material";
-import {passwordRecoveryTC} from "../../../../bll/reducers/auth-reducer";
+import {passwordRecoveryTC} from "../../../../store/reducers/auth-reducer";
 import {useAppDispatch, useAppSelector} from "../../../../utils/hooks";
 
 type FormikErrorType = {

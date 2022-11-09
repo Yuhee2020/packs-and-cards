@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react'
 import { Box, Slider } from '@mui/material'
 import style from '../Packs.module.css'
 import {useAppDispatch, useAppSelector} from '../../../../utils/hooks'
-import {setCardsRangeAC, setCardsRangeTC} from "../../../../bll/reducers/packs-reducer";
+import {setCardsRangeAC, setCardsRangeTC} from "../../../../store/reducers/packs-reducer";
 
 export const NumberOfCards = () => {
     const dispatch = useAppDispatch()

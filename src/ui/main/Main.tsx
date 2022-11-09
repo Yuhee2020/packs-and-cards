@@ -2,8 +2,9 @@ import React from "react";
 import Header from "../header/Header";
 import Routing from "../routing/Routing";
 import {ErrorSnackbar} from "../common/ErrorSnackbar/ErrorSnackbar";
-import {Backdrop, CircularProgress} from "@mui/material";
+import {Backdrop, CircularProgress, Fab} from "@mui/material";
 import {useAppSelector} from "../../utils/hooks";
+import NavigationIcon from '@mui/icons-material/Navigation';
 
 
 const Main = () => {

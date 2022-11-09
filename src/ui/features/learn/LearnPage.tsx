@@ -1,5 +1,5 @@
 import React, {useEffect, useState, ChangeEvent} from "react";
-import {getCardsTC, updateCardGradeTC} from "../../../bll/reducers/cards-reducer";
+import {getCardsTC, updateCardGradeTC} from "../../../store/reducers/cards-reducer";
 import {
     Button,
     Container,
@@ -9,7 +9,7 @@ import {
     RadioGroup,
 } from "@mui/material";
 import {useAppDispatch, useAppSelector} from "../../../utils/hooks";
-import {CardType} from "../../../dal/cards-api";
+import {CardType} from "../../../api/cards-api";
 import {GoToPackList} from "../cards/commonCardsPageComponents/GoToPackList";
 import s from './LearnPage.module.css';
 import {useParams} from "react-router-dom";

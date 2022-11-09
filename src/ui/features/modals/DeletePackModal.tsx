@@ -1,10 +1,10 @@
 import React, {useState} from 'react';
 import {useAppDispatch} from "../../../utils/hooks";
-import {deletePackTC} from "../../../bll/reducers/packs-reducer";
+import {deletePackTC} from "../../../store/reducers/packs-reducer";
 import {Button, IconButton, Stack} from "@mui/material";
 import DeleteIcon from '@mui/icons-material/Delete';
 import {BasicModal} from "./BasicModal";
-import {PackType} from "../../../dal/packs-api";
+import {PackType} from "../../../api/packs-api";
 import ListItemIcon from "@mui/material/ListItemIcon";
 import DeleteOutlineIcon from "@mui/icons-material/DeleteOutline";
 import MenuItem from "@mui/material/MenuItem";

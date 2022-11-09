@@ -13,7 +13,7 @@ import {AddNewPackModal} from "../../modals/AddNewPackModal";
 import SearchIcon from "@mui/icons-material/Search";
 import {NumberOfCards} from "./NumberOfCards";
 import FilterAltOffIcon from "@mui/icons-material/FilterAltOff";
-import {resetAllPacksFilterTC, searchPacksAC, setMyPacksToPageAC} from "../../../../bll/reducers/packs-reducer";
+import {resetAllPacksFilterTC, searchPacksAC, setMyPacksToPageAC} from "../../../../store/reducers/packs-reducer";
 import {useAppDispatch, useAppSelector} from "../../../../utils/hooks";
 
 export const PacksPageHeader = () => {

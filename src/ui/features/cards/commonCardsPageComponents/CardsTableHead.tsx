@@ -5,7 +5,7 @@ import TableCell from "@mui/material/TableCell";
 import {IconButton} from "@mui/material";
 import ArrowDownwardIcon from "@mui/icons-material/ArrowDownward";
 import ArrowUpwardIcon from "@mui/icons-material/ArrowUpward";
-import {setSortAC} from "../../../../bll/reducers/cards-reducer";
+import {setSortAC} from "../../../../store/reducers/cards-reducer";
 import {useAppDispatch, useAppSelector} from "../../../../utils/hooks";
 
 export const CardsTableHead = () => {

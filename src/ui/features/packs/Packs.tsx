@@ -1,7 +1,7 @@
 import React, {useEffect} from "react";
 import {Container, Grid, Paper, Table, TableBody, TableContainer} from "@mui/material";
 import {useAppDispatch, useAppSelector, useDebounce} from "../../../utils/hooks";
-import {setPacksTC} from "../../../bll/reducers/packs-reducer";
+import {setPacksTC} from "../../../store/reducers/packs-reducer";
 import {PacksPagination} from "./PacksPageHeader/PacksPagination";
 import {PacksPageHeader} from "./PacksPageHeader/PacksPageHeader";
 import {PacksTableHead} from "./PacksTable/PacksTableHead";

@@ -3,7 +3,7 @@ import TableCell from "@mui/material/TableCell";
 import {Rating, Stack} from "@mui/material";
 import TableRow from "@mui/material/TableRow";
 import {useAppSelector} from "../../../../utils/hooks";
-import {CardType} from "../../../../dal/cards-api";
+import {CardType} from "../../../../api/cards-api";
 import {DeleteCardModal} from "../../modals/DeleteCard.Modal";
 import {EditCardModal} from "../../modals/EditCardModal";
 import s from "../Cards.module.css"

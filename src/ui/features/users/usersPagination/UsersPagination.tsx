@@ -1,24 +1,24 @@
-import React, {ChangeEvent} from 'react';
-import {MenuItem, Pagination, Select, SelectChangeEvent, Stack} from "@mui/material";
 import {useAppDispatch, useAppSelector} from "../../../../utils/hooks";
-import {setPageAC, setPageCountAC} from "../../../../store/reducers/cards-reducer";
+import React, {ChangeEvent} from "react";
+
+import {MenuItem, Pagination, Select, SelectChangeEvent, Stack} from "@mui/material";
 import {BootstrapInput} from "../../../common/BootstrapInput/BootstrapInput";
+import {setPageAC, setUsersCountAC} from "../../../../store/reducers/users-reducer";
 
-
-export const CardsPagination = () => {
+export const UsersPagination = () => {
     const dispatch = useAppDispatch()
-    const cardsTotalCount=useAppSelector(state => state.cards.cardsTotalCount)
-    const pageCount=useAppSelector(state => state.cards.pageCount)
+    const UsersTotalCount=useAppSelector(state => state.users.usersTotalCount)
+    const pageCount=useAppSelector(state => state.users.pageCount)
     const changePageHandler=(e: ChangeEvent<unknown>, page: number)=>{
         dispatch(setPageAC(page))
     }
     const handleChange = (event: SelectChangeEvent<any>) => {
-        dispatch(setPageCountAC(event.target.value))
+        dispatch(setUsersCountAC(event.target.value))
     }
     return (
         <Stack direction={"row"} spacing={1}>
             <Pagination
-                count={Math.ceil(cardsTotalCount/pageCount)}
+                count={Math.ceil(UsersTotalCount/pageCount)}
                 shape="rounded"
                 onChange={changePageHandler}
             />
@@ -32,10 +32,9 @@ export const CardsPagination = () => {
             >
                 <MenuItem value={5}>5</MenuItem>
                 <MenuItem value={10}>10</MenuItem>
-                <MenuItem value={15}>15</MenuItem>
+                <MenuItem value={20}>20</MenuItem>
             </Select>
-            <span>cards per page</span>
+            <span>users per page</span>
         </Stack>
     );
 };
-

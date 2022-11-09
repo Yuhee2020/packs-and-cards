@@ -5,6 +5,7 @@ import {profileReducer} from "./reducers/profile-reducer";
 import { appReducer } from './reducers/app-reducer';
 import {packsReducer} from "./reducers/packs-reducer";
 import {cardsReducer} from "./reducers/cards-reducer";
+import {usersReducer} from "./reducers/users-reducer";
 
 const rootReducer = combineReducers({
     app: appReducer,
@@ -12,6 +13,7 @@ const rootReducer = combineReducers({
     profile: profileReducer,
     packs: packsReducer,
     cards: cardsReducer,
+    users: usersReducer,
 });
 
 export const store = createStore(rootReducer, applyMiddleware(thunk));

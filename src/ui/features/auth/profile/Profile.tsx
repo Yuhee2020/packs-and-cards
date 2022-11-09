@@ -1,9 +1,9 @@
 import React, {useCallback, useEffect} from "react";
 import SuperEditableSpan from "../../../common/EditablSpan/EditablSpan";
 import {Navigate} from "react-router-dom";
-import {changeNameAC, changeProfileInfoTC} from "../../../../bll/reducers/profile-reducer";
+import {changeNameAC, changeProfileInfoTC} from "../../../../store/reducers/profile-reducer";
 import {useAppDispatch, useAppSelector} from "../../../../utils/hooks";
-import {logoutTC} from "../../../../bll/reducers/auth-reducer";
+import {logoutTC} from "../../../../store/reducers/auth-reducer";
 import {LOGIN} from "../../../routing/Routing";
 import s from './Profile.module.css';
 import {Button, Grid, Paper, Typography} from "@mui/material";

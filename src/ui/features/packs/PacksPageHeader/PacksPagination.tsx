@@ -1,7 +1,7 @@
 import React, {ChangeEvent} from 'react';
 import {MenuItem, Pagination, Select, SelectChangeEvent, Stack} from "@mui/material";
 import {useAppDispatch, useAppSelector} from "../../../../utils/hooks";
-import {changePacksPageAC, setPacksPageCountAC} from "../../../../bll/reducers/packs-reducer";
+import {changePacksPageAC, setPacksPageCountAC} from "../../../../store/reducers/packs-reducer";
 import {BootstrapInput} from "../../../common/BootstrapInput/BootstrapInput";
 
 

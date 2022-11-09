@@ -1,9 +1,9 @@
 import React, {ChangeEvent, useState} from 'react';
 import {Button, Checkbox, FormControlLabel, Stack, TextField} from "@mui/material";
-import {createPackTC} from "../../../bll/reducers/packs-reducer";
+import {createPackTC} from "../../../store/reducers/packs-reducer";
 import {useAppDispatch} from "../../../utils/hooks";
 import {BasicModal} from "./BasicModal";
-import {setAppErrorAC} from "../../../bll/reducers/app-reducer";
+import {setAppErrorAC} from "../../../store/reducers/app-reducer";
 import {convertFileToBase64} from "../../../utils/base64Converter";
 import s from "./modal.module.css"
 

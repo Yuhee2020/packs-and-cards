@@ -2,7 +2,7 @@ import React from 'react';
 import {IconButton, TableCell, TableHead, TableRow} from "@mui/material";
 import ArrowDownwardIcon from "@mui/icons-material/ArrowDownward";
 import ArrowUpwardIcon from "@mui/icons-material/ArrowUpward";
-import {setSortPacksAC} from "../../../../bll/reducers/packs-reducer";
+import {setSortPacksAC} from "../../../../store/reducers/packs-reducer";
 import {useAppDispatch, useAppSelector} from "../../../../utils/hooks";
 
 export const PacksTableHead = () => {

@@ -1,13 +1,13 @@
 import React, {ChangeEvent, useState} from 'react';
 import {useAppDispatch} from "../../../utils/hooks";
-import {changeCoverAC, updatePackTC} from "../../../bll/reducers/packs-reducer";
+import {changeCoverAC, updatePackTC} from "../../../store/reducers/packs-reducer";
 import {Button, Checkbox, FormControlLabel, IconButton, Stack, TextField} from "@mui/material";
 import DriveFileRenameOutlineIcon from '@mui/icons-material/DriveFileRenameOutline';
 import {BasicModal} from "./BasicModal";
-import {PackType} from "../../../dal/packs-api";
+import {PackType} from "../../../api/packs-api";
 import s from "./modal.module.css";
 import {convertFileToBase64} from "../../../utils/base64Converter";
-import {setAppErrorAC} from "../../../bll/reducers/app-reducer";
+import {setAppErrorAC} from "../../../store/reducers/app-reducer";
 import BorderColorIcon from "@mui/icons-material/BorderColor";
 import ListItemIcon from "@mui/material/ListItemIcon";
 import MenuItem from "@mui/material/MenuItem";

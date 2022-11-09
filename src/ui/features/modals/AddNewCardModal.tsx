@@ -11,11 +11,11 @@ import {
     Stack,
     TextField
 } from "@mui/material";
-import {addCardTC} from "../../../bll/reducers/cards-reducer";
+import {addCardTC} from "../../../store/reducers/cards-reducer";
 import {useAppDispatch} from "../../../utils/hooks";
 import {useFormik} from "formik";
 import {convertFileToBase64} from "../../../utils/base64Converter";
-import {setAppErrorAC} from "../../../bll/reducers/app-reducer";
+import {setAppErrorAC} from "../../../store/reducers/app-reducer";
 import s from "./modal.module.css"
 
 

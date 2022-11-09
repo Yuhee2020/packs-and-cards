@@ -2,8 +2,8 @@ import React, {useState} from 'react';
 import {BasicModal} from "./BasicModal";
 import {Button, IconButton, Stack} from "@mui/material";
 import DeleteOutlineIcon from "@mui/icons-material/DeleteOutline";
-import {CardType} from "../../../dal/cards-api";
-import {deleteCardTC} from "../../../bll/reducers/cards-reducer";
+import {CardType} from "../../../api/cards-api";
+import {deleteCardTC} from "../../../store/reducers/cards-reducer";
 import {useAppDispatch} from "../../../utils/hooks";
 
 

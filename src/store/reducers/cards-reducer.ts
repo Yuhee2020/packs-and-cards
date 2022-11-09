@@ -1,7 +1,7 @@
 import {AppThunk} from "../store";
 import {handleServerNetworkError} from "../../utils/error-utils";
 import {setAppStatusAC} from "./app-reducer";
-import {cardsAPI, CardType, GetCardsResponseType, PostCardType, UpdateCardType} from "../../dal/cards-api";
+import {cardsAPI, CardType, GetCardsResponseType, PostCardType, UpdateCardType} from "../../api/cards-api";
 
 
 let initialState = {

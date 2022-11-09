@@ -1,8 +1,8 @@
 import {
     setAppErrorAC,
     setAppStatusAC,
-} from '../bll/reducers/app-reducer'
-import {AppDispatch} from "../bll/store";
+} from '../store/reducers/app-reducer'
+import {AppDispatch} from "../store/store";
 
 
 export const handleServerNetworkError = (error: { message: string }, dispatch: AppDispatch) => {

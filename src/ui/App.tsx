@@ -2,7 +2,7 @@ import React, {useEffect} from 'react';
 import './App.css';
 import Main from "./main/Main";
 import {useAppDispatch, useAppSelector} from "../utils/hooks";
-import {initializeAppTC} from '../bll/reducers/auth-reducer';
+import {initializeAppTC} from '../store/reducers/auth-reducer';
 import {CircularProgress} from "@mui/material";
 
 function App() {
