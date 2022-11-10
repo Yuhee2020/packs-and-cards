@@ -4,7 +4,10 @@ export const usersAPI = {
 
     getUsers(params: GetUsersParamsType) {
         return instance.get<GetUsersResponseType>("social/users", {params})
-    }
+    },
+	getUser(userID:string) {
+		return instance.get<GetUserResponseType>(`social/user?id=${userID}`)
+	},
 }
 
 export type GetUsersParamsType={
@@ -36,4 +39,10 @@ export type UserType = {
 	publicCardPacksCount: number;
 	created: string;
 	updated: string;
+}
+
+export type GetUserResponseType = {
+	user: UserType;
+	token: string;
+	tokenDeathTime: number;
 }

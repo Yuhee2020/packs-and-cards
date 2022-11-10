@@ -9,7 +9,8 @@ const initialState = {
     page: 1,
     pageCount: 5,
     userName: "",
-    usersTotalCount: 0
+    usersTotalCount: 0,
+    user:{} as UserType
 }
 
 export const usersReducer = (state: UsersStateType = initialState, action: UsersActionsType): UsersStateType => {
@@ -25,6 +26,9 @@ export const usersReducer = (state: UsersStateType = initialState, action: Users
         }
         case 'users/SET-USER-NAME': {
             return {...state, userName: action.userName}
+        }
+        case 'users/SET-USER': {
+            return {...state, user: action.user}
         }
         default:
             return state;
@@ -45,17 +49,24 @@ export const setPageAC = (page: number) => {
     } as const
 }
 
-export const setUsersCountAC = (usersCount:number) => {
+export const setUsersCountAC = (usersCount: number) => {
     return {
         type: 'users/SET-USERS-COUNT',
         usersCount
     } as const
 }
 
-export const setUserNameAC = (userName:string) => {
+export const setUserNameAC = (userName: string) => {
     return {
         type: 'users/SET-USER-NAME',
         userName
+    } as const
+}
+
+export const setUserAC = (user: UserType) => {
+    return {
+        type: 'users/SET-USER',
+        user
     } as const
 }
 
@@ -76,11 +87,27 @@ export const getUsersTC = (): AppThunk => (dispatch, getState: () => AppRootStat
         .finally(() => dispatch(setAppStatusAC("idle")))
 }
 
+export const getUserTC = (userId: string): AppThunk => (dispatch) => {
+    dispatch(setAppStatusAC("loading"))
+    usersAPI.getUser(userId)
+        .then(res => {
+            dispatch(setUserAC(res.data.user))
+        })
+        .catch((err: AxiosError<{ error: string }>) => {
+            const error = err.response
+                ? err.response.data.error
+                : err.message
+            handleServerNetworkError({message: error}, dispatch)
+        })
+        .finally(() => dispatch(setAppStatusAC("idle")))
+}
+
 
 type UsersStateType = typeof initialState;
 type UsersActionsType = ReturnType<typeof setUsersAC>
     | ReturnType<typeof setPageAC>
     | ReturnType<typeof setUsersCountAC>
     | ReturnType<typeof setUserNameAC>
+    | ReturnType<typeof setUserAC>
 
 

@@ -7,8 +7,8 @@ import {EditPackModal} from "../../modals/EditPackModal";
 import {DeletePackModal} from "../../modals/DeletePackModal";
 import {PackType} from "../../../../api/packs-api";
 import {useAppDispatch, useAppSelector} from "../../../../utils/hooks";
-import cover from "../../../common/img/successful.png"
 import {setDefaultCoverAC} from "../../../../store/reducers/packs-reducer";
+import {USERS} from "../../../routing/Routing";
 
 type PropsType = {
     pack: PackType
@@ -40,7 +40,7 @@ export const PacksTableBody = ({pack}: PropsType) => {
             </TableCell>
             <TableCell align="left" width={"15%"}>{pack.cardsCount}</TableCell>
             <TableCell align="center" width={"15%"}>{day + '.' + month + '.' + year}</TableCell>
-            <TableCell align="left" width={"20%"}>{pack.user_name}</TableCell>
+            <TableCell align="left" width={"20%"}><NavLink className={s.nav} to={USERS+`${pack.user_id}`}>{pack.user_name}</NavLink></TableCell>
             <TableCell align="right" width={"15%"}>
                 <IconButton
                     onClick={() => learnPackHandler(pack._id)}
@@ -59,7 +59,7 @@ export const PacksTableBody = ({pack}: PropsType) => {
                     </div>
                 }
                 {pack.user_id !== myId &&
-                    <div style={{display: 'inline-block', width: '72px', height: '20px'}}></div>
+                    <div style={{display: 'inline-block', width: '72px', height: '20px'}}/>
                 }
             </TableCell>
         </TableRow>
