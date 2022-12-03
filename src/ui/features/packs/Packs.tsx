@@ -6,10 +6,13 @@ import {PacksPagination} from "./PacksPageHeader/PacksPagination";
 import {PacksPageHeader} from "./PacksPageHeader/PacksPageHeader";
 import {PacksTableHead} from "./PacksTable/PacksTableHead";
 import PacksTableBody from "./PacksTable/PacksTableBody";
+import {Navigate} from "react-router-dom";
+import {LOGIN} from "../../routing/Routing";
 
 
 const Packs = () => {
     const dispatch = useAppDispatch();
+    const isLoggedIn = useAppSelector(state => state.auth.isLoggedIn);
     const packs = useAppSelector(state => state.packs.cardPacks);
     const isMyId = useAppSelector(state => state.packs.isMyId);
     const pageCount = useAppSelector(state => state.packs.pageCount)
@@ -23,7 +26,9 @@ const Packs = () => {
     }, [debounceSearchValue, page, isMyId, pageCount, sort])
 
 
-
+    if (!isLoggedIn) {
+        return <Navigate to={LOGIN}/>
+    }
 
     return <Container maxWidth="lg">
         <PacksPageHeader/>
