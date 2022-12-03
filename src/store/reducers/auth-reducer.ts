@@ -40,11 +40,15 @@ export const authReducer = (state: StateType = initialState, action: ActionsType
 }
 
 //actions
-export const loginAC = (value: boolean) =>({type: 'auth/SET-IS-LOGGED-IN', value} as const)
+export const loginAC = (value: boolean) => ({type: 'auth/SET-IS-LOGGED-IN', value} as const)
 export const setIsInitializedAC = (value: boolean) => ({type: 'auth/SET-IS-INITIALIZED', value} as const);
-export const registrationAC = (value: boolean) => ( {type: 'auth/SIGN_UP', value} as const)
-export const changePasswordRecoveryStatusAC = (status: boolean, email: string) =>({type: 'auth/CHANGE-PR-STATUS', status, email} as const)
-export const setNewPasswordAC = (value: boolean) =>( {type: 'auth/SET-NEW-PASSWORD', newPasswordStatus: value} as const)
+export const registrationAC = (value: boolean) => ({type: 'auth/SIGN_UP', value} as const)
+export const changePasswordRecoveryStatusAC = (status: boolean, email: string) => ({
+    type: 'auth/CHANGE-PR-STATUS',
+    status,
+    email
+} as const)
+export const setNewPasswordAC = (value: boolean) => ({type: 'auth/SET-NEW-PASSWORD', newPasswordStatus: value} as const)
 
 
 //thunks
@@ -90,25 +94,25 @@ export const initializeAppTC = () => (dispatch: AppDispatch) => {
             dispatch(loginAC(true))
             dispatch(setProfileAC(res.data));
         })
-        .catch( () => {
+        .catch(() => {
             }
         )
         .finally(() => {
-            dispatch(setIsInitializedAC(true))
-            dispatch(setAppStatusAC("idle"))
-        }
-)
+                dispatch(setIsInitializedAC(true))
+                dispatch(setAppStatusAC("idle"))
+            }
+        )
 
 }
 
-export const registrationTC = (values: ValuesType) =>(dispatch: AppDispatch) => {
+export const registrationTC = (values: ValuesType) => (dispatch: AppDispatch) => {
     dispatch(setAppStatusAC("loading"))
     authAPI.register({email: values.email, password: values.password})
-        .then(res=>{
+        .then(res => {
             dispatch(registrationAC(true));
             alert(`${JSON.stringify(res.data.addedUser.name)} sign up successfully!`)
         })
-        .catch (err=> {
+        .catch(err => {
             const error = err.response
                 ? err.response.data.error
                 : err.message
@@ -125,7 +129,7 @@ export const passwordRecoveryTC = (email: { email: string }) => {
             message: `<div style="background-color: lime; padding: 15px">
             password recovery link: 
             Forgot your password? That is okay? it happens! Click on the link bellow to reset yor password:
-            <a href='https://tatiankris.github.io/autumn-project/#/new-password/$token$'>link</a></div>`
+            <a href='https://yuhee2020.github.io/packs-and-cards/#/new-password/$token$'>link</a></div>`
             // хтмп-письмо, вместо $token$ бэк вставит токен
         }
         authAPI.passwordRecovery(data)
