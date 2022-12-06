@@ -1,9 +1,10 @@
-import {authAPI, LoginDataType} from "../../api/auth-api";
+import {authAPI} from "../../api/auth-api/auth-api";
 import {setProfileAC} from "./profile-reducer";
 import {AppDispatch} from "../store";
 import {handleServerNetworkError} from "../../utils/error-utils";
 import {setAppStatusAC} from "./app-reducer";
-import {ValuesType} from "../../ui/features/auth/registration/Registration";
+import {ValuesType} from "../../ui/features/registration/Registration";
+import {LoginDataType} from "../../api/auth-api/authTypes";
 
 
 let initialState = {
@@ -14,8 +15,8 @@ let initialState = {
     email: "",
     newPasswordStatus: false
 }
-export type StateType = typeof initialState;
 
+//reducer
 export const authReducer = (state: StateType = initialState, action: ActionsType): StateType => {
 
     switch (action.type) {
@@ -168,6 +169,8 @@ export const setNewPasswordTC = (password: string, resetPasswordToken: string) =
 }
 
 //types
+export type StateType = typeof initialState;
+
 export type ActionsType = ReturnType<typeof loginAC>
     | ReturnType<typeof setIsInitializedAC>
     | ReturnType<typeof registrationAC>

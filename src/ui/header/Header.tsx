@@ -1,6 +1,6 @@
 import React from "react";
 import {AppBar, Box, Toolbar, Typography} from "@mui/material";
-import cards from "../common/img/cards.png"
+import cards from "../common/images/cards.png"
 import s from "./Header.module.css"
 import BreadCrumbs from "./BreadCrumbs";
 import RightZone from "./RightZone";

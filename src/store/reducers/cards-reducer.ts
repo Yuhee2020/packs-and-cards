@@ -1,7 +1,9 @@
 import {AppThunk} from "../store";
 import {handleServerNetworkError} from "../../utils/error-utils";
 import {setAppStatusAC} from "./app-reducer";
-import {cardsAPI, CardType, GetCardsResponseType, PostCardType, UpdateCardType} from "../../api/cards-api";
+import {cardsAPI} from "../../api/cards-api/cards-api";
+import {CardType, GetCardsResponseType, PostCardType, UpdateCardType} from "../../api/cards-api/cardsTypes";
+
 
 
 let initialState = {
@@ -19,8 +21,7 @@ let initialState = {
     isMyPack: false
 }
 
-export type StateType = typeof initialState;
-
+//reducer
 export const cardsReducer = (state: StateType = initialState, action: ActionsType): StateType => {
 
     switch (action.type) {
@@ -245,4 +246,5 @@ export type ActionsType =
     ReturnType<typeof setIsMyPackAC> |
     ReturnType<typeof setPackNameAC>
 
+export type StateType = typeof initialState;
 

@@ -3,12 +3,13 @@ import {IconButton, TableCell, TableRow} from "@mui/material";
 import {NavLink, useNavigate} from "react-router-dom";
 import s from "../Packs.module.css";
 import SchoolIcon from "@mui/icons-material/School";
-import {EditPackModal} from "../../modals/EditPackModal";
-import {DeletePackModal} from "../../modals/DeletePackModal";
-import {PackType} from "../../../../api/packs-api";
+import {EditPackModal} from "../packsModals/EditPackModal";
+import {DeletePackModal} from "../packsModals/DeletePackModal";
 import {useAppDispatch, useAppSelector} from "../../../../utils/hooks";
 import {setDefaultCoverAC} from "../../../../store/reducers/packs-reducer";
 import {USERS} from "../../../routing/Routing";
+import {PackType} from "../../../../api/packs-api/packsTypes";
+
 
 type PropsType = {
     pack: PackType

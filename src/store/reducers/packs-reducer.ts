@@ -1,10 +1,12 @@
-import {GetPacksResponseType, packsAPI, PackType, UpdatePackDataType} from "../../api/packs-api";
+import {packsAPI} from "../../api/packs-api/packs-api";
 import {AppRootStateType, AppThunk} from "../store";
 import {setAppStatusAC} from "./app-reducer";
 import {AxiosError} from "axios";
 import {handleServerNetworkError} from "../../utils/error-utils";
 import {setPackNameAC} from "./cards-reducer";
-import {cover} from "../../ui/common/img/cover";
+import {cover} from "../../ui/common/images/cover";
+import {GetPacksResponseType, PackType, UpdatePackDataType} from "../../api/packs-api/packsTypes";
+
 
 const initialState = {
     cardPacks: [] as Array<PackType>,
@@ -20,6 +22,7 @@ const initialState = {
     sort: "0updated"
 }
 
+//reducer
 export const packsReducer = (state: PacksStateType = initialState, action: PacksActionsType): PacksStateType => {
     switch (action.type) {
         case 'packs/SET-PACKS': {
@@ -87,6 +90,7 @@ export const packsReducer = (state: PacksStateType = initialState, action: Packs
     }
 }
 
+//action creators
 export const setPacksAC = (data: GetPacksResponseType) => {
     return {
         type: 'packs/SET-PACKS',
@@ -155,7 +159,7 @@ export const changeCoverAC = (id:string, cover:string) => {
     } as const
 }
 
-
+///thunks
 export const setPacksTC = (): AppThunk => (dispatch, getState: () => AppRootStateType) => {
     dispatch(setAppStatusAC("loading"))
     const {search, page, pageCount, isMyId, min, max, sort} = getState().packs;
@@ -241,6 +245,8 @@ export const resetAllPacksFilterTC = (): AppThunk => (dispatch) => {
     dispatch(setPacksTC())
 }
 
+
+//types
 export type PacksStateType = typeof initialState;
 export type PacksActionsType = ReturnType<typeof setPacksAC>
     | ReturnType<typeof searchPacksAC>

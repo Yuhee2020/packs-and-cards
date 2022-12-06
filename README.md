@@ -1,8 +1,12 @@
 # Packs and Cards
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+#### An application for learning from cards. The user can create their own packs and add unique cards to them. Or use the cards of other users.
+####The application implements registration, login, password recovery, chat with other users, pages with deck cards and users.
+#### Used https and websocket to communicate with the server
+This project was created with [Create React App](https://github.com/facebook/create-react-app).
 
 ## The following libraries are installed in this project
+
 - **TypeScript**
 - **React**
 - **Redux**
@@ -13,3 +17,4 @@ This project was bootstrapped with [Create React App](https://github.com/faceboo
 - **Formik**
 - **Axios**
 - **Formik**
+- **Socket.io-client**

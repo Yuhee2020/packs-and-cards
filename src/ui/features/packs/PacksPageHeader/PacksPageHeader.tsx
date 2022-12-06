@@ -9,7 +9,7 @@ import {
     InputLabel,
     OutlinedInput
 } from "@mui/material";
-import {AddNewPackModal} from "../../modals/AddNewPackModal";
+import {AddNewPackModal} from "../packsModals/AddNewPackModal";
 import SearchIcon from "@mui/icons-material/Search";
 import {NumberOfCards} from "./NumberOfCards";
 import FilterAltOffIcon from "@mui/icons-material/FilterAltOff";

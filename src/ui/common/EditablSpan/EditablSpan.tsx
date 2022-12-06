@@ -1,5 +1,6 @@
 import React, { ChangeEvent, useState } from 'react';
 import TextField from '@mui/material/TextField';
+import {Tooltip} from "@mui/material";
 
 type EditableSpanPropsType = {
     value: string
@@ -23,8 +24,8 @@ export const SuperEditableSpan = React.memo(function (props: EditableSpanPropsTy
     }
 
     return editMode
-        ? <TextField value={title} onChange={changeTitle} autoFocus onBlur={activateViewMode}/>
-        : <span onDoubleClick={activateEditMode}>{props.value}</span>
+        ? <TextField size={"small"} value={title} onChange={changeTitle} autoFocus onBlur={activateViewMode}/>
+        : <Tooltip title={"Double click to edit"}><span onDoubleClick={activateEditMode}>{props.value}</span></Tooltip>
 });
 
 export default SuperEditableSpan;

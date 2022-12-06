@@ -9,10 +9,11 @@ import {
     RadioGroup,
 } from "@mui/material";
 import {useAppDispatch, useAppSelector} from "../../../utils/hooks";
-import {CardType} from "../../../api/cards-api";
-import {GoToPackList} from "../cards/commonCardsPageComponents/GoToPackList";
+import {GoToPackList} from "../cards/cardsPageHead/GoToPackList";
 import s from './LearnPage.module.css';
 import {useParams} from "react-router-dom";
+import {CardType} from "../../../api/cards-api/cardsTypes";
+
 
 const grades = ['Did not know', 'Forgot', 'A lot of thought', 'Confused', 'Knew the answer'];
 

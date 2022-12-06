@@ -2,7 +2,9 @@ import {AppDispatch} from "../store";
 import {AxiosError} from "axios";
 import {handleServerNetworkError} from "../../utils/error-utils";
 import {setAppStatusAC} from "./app-reducer";
-import {authAPI, LoginResponseType} from "../../api/auth-api";
+import {authAPI} from "../../api/auth-api/auth-api";
+import {LoginResponseType} from "../../api/auth-api/authTypes";
+
 
 //state
 const initialState = {

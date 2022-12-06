@@ -2,7 +2,9 @@ import {AppRootStateType, AppThunk} from "../store";
 import {setAppStatusAC} from "./app-reducer";
 import {AxiosError} from "axios";
 import {handleServerNetworkError} from "../../utils/error-utils";
-import {GetUsersResponseType, usersAPI, UserType} from "../../api/users-api";
+import {usersAPI,} from "../../api/users-api/users-api";
+import {GetUsersResponseType, UserType} from "../../api/users-api/usersTypes";
+
 
 const initialState = {
     users: [] as UserType[],
@@ -13,6 +15,7 @@ const initialState = {
     user:{} as UserType
 }
 
+//reducer
 export const usersReducer = (state: UsersStateType = initialState, action: UsersActionsType): UsersStateType => {
     switch (action.type) {
         case 'users/SET-USERS': {
@@ -35,6 +38,7 @@ export const usersReducer = (state: UsersStateType = initialState, action: Users
     }
 }
 
+//action creators
 export const setUsersAC = (users: GetUsersResponseType) => {
     return {
         type: 'users/SET-USERS',
@@ -70,7 +74,7 @@ export const setUserAC = (user: UserType) => {
     } as const
 }
 
-
+//thunks
 export const getUsersTC = (): AppThunk => (dispatch, getState: () => AppRootStateType) => {
     dispatch(setAppStatusAC("loading"))
     const {page, pageCount, userName} = getState().users
@@ -102,7 +106,7 @@ export const getUserTC = (userId: string): AppThunk => (dispatch) => {
         .finally(() => dispatch(setAppStatusAC("idle")))
 }
 
-
+//types
 type UsersStateType = typeof initialState;
 type UsersActionsType = ReturnType<typeof setUsersAC>
     | ReturnType<typeof setPageAC>

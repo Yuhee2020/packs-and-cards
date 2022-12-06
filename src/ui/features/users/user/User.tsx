@@ -2,10 +2,10 @@ import React, {useEffect} from 'react';
 import {useParams} from "react-router-dom";
 import {getUserTC} from "../../../../store/reducers/users-reducer";
 import {useAppDispatch, useAppSelector} from "../../../../utils/hooks";
-import s from "../../auth/profile/Profile.module.css";
+import s from "../../profile/Profile.module.css";
 import {Grid, Paper, Typography} from "@mui/material";
-import gomer from "../../../common/img/Homer_Simpson.webp"
-import {GoToPackList} from "../../cards/commonCardsPageComponents/GoToPackList";
+import gomer from "../../../common/images/Homer_Simpson.webp"
+import {GoToPackList} from "../../cards/cardsPageHead/GoToPackList";
 
 export const User = () => {
     const dispatch = useAppDispatch()
