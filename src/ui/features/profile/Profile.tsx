@@ -10,8 +10,9 @@ import {Button, Grid, Paper, Typography} from "@mui/material";
 import LogoutIcon from '@mui/icons-material/Logout';
 import {GoToPackList} from "../cards/cardsPageHead/GoToPackList";
 import {ChangeAva} from "./ChangeAva";
+import {Chat} from "../chat/Chat";
 
-const Profile = React.memo(() => {
+const Profile = () => {
 
     const dispatch = useAppDispatch();
     const name = useAppSelector(state => state.profile.name);
@@ -27,9 +28,9 @@ const Profile = React.memo(() => {
         dispatch(changeNameAC(name));
     }, [dispatch, name,]);
 
-    const logout = useCallback(() => {
+    const logout = ()=> {
         dispatch(logoutTC());
-    }, [dispatch])
+    }
 
     if (!isLoggedIn) {
         return <Navigate to={LOGIN}/>
@@ -69,6 +70,6 @@ const Profile = React.memo(() => {
             </Grid>
         </div>
     )
-});
+};
 
 export default Profile;

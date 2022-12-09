@@ -129,7 +129,7 @@ const NewPassword = () => {
                                         type={'submit'}
                                         variant={'contained'}
                                         color={'primary'}
-                                        disabled={formik.values.password != formik.values.confirmPassword}
+                                        disabled={formik.values.password !== formik.values.confirmPassword}
                                         fullWidth>
                                     Change password
                                 </Button>

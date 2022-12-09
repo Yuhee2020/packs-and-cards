@@ -1,0 +1,25 @@
+.paper {
+    width: 400px;
+    height: 500px;
+}
+
+.header {
+    display: flex;
+    justify-content: end;
+    align-items: center;
+    padding: 10px;
+    background: #efefef;
+}
+
+.title {
+    /*@include text(20px, 600, 20px);*/
+    margin: 0 auto;
+    position: relative;
+    left: 14px;
+}
+
+.input {
+    width: 400px;
+    padding: 5px 10px 5px 18px;
+    background: #efefef;
+}

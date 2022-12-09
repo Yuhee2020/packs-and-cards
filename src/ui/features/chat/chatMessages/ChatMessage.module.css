@@ -1,0 +1,6 @@
+.messages {
+    display: flex;
+    flex-direction: column;
+    justify-content: start;
+    height: 402px;
+}

@@ -36,7 +36,7 @@ const Login = () => {
     const dispatch = useAppDispatch()
     useEffect(()=>{
         dispatch(changePasswordRecoveryStatusAC(false,""))
-    },[dispatch()])
+    },[dispatch])
     const isLoggedIn = useAppSelector(state => state.auth.isLoggedIn)
     const [showPassword, setShowPassword] = useState(false)
     const handleClickShowPassword = () => {
