@@ -13,9 +13,8 @@
 }
 
 .avatarImg{
-    position: relative;
-    border-radius: 50%;
-    object-fit:contain;
+    object-fit: cover;
+    border-radius:50%;
     width: 120px;
     height: 120px;
 }

@@ -2,10 +2,21 @@ import React from 'react';
 import {Breadcrumbs, Link} from "@mui/material";
 import HomeIcon from "@mui/icons-material/Home";
 import WhatshotIcon from "@mui/icons-material/Whatshot";
+import ForumOutlinedIcon from '@mui/icons-material/ForumOutlined';
 import GrainIcon from "@mui/icons-material/Grain";
 import {PACKS, PROFILE, USERS} from "../routing/Routing";
+import {useAppDispatch} from "../../utils/hooks";
+import {setChatViewedAC} from "../../store/reducers/chat-reducer";
+
 
 export const BreadCrumbs = () => {
+
+    const dispatch = useAppDispatch()
+
+    const openChat = () => {
+        dispatch(setChatViewedAC(true))
+    }
+
     return (
         <Breadcrumbs style={{marginRight: "150px"}}>
             <Link
@@ -27,7 +38,6 @@ export const BreadCrumbs = () => {
                 USERS
             </Link>
             <Link
-
                 underline="hover"
                 sx={{display: 'flex', alignItems: 'center'}}
                 color="yellow"
@@ -35,6 +45,16 @@ export const BreadCrumbs = () => {
             >
                 <GrainIcon sx={{mr: 0.5}}/>
                 PACKS
+            </Link>
+            <Link
+                onClick={openChat}
+                underline="hover"
+                sx={{display: 'flex', alignItems: 'center'}}
+                color="yellow"
+                style={{cursor: "pointer"}}
+            >
+                <ForumOutlinedIcon sx={{mr: 0.5}}/>
+                CHAT
             </Link>
         </Breadcrumbs>
     );

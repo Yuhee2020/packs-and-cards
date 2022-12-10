@@ -95,9 +95,7 @@ export const initializeAppTC = () => (dispatch: AppDispatch) => {
             dispatch(loginAC(true))
             dispatch(setProfileAC(res.data));
         })
-        .catch(() => {
-            }
-        )
+        .catch(()=>{})
         .finally(() => {
                 dispatch(setIsInitializedAC(true))
                 dispatch(setAppStatusAC("idle"))

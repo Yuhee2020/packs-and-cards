@@ -7,22 +7,11 @@
 
 .message {
     padding: 5px 15px;
-    background: #EFEFEF;
-    border-radius: 7px 7px 7px 0;
+    background: #e4f0ff;
+    border-radius: 7px;
     position: relative;
     word-break: break-word;
     margin: 0 10px;
-}
-
-.message::after {
-    content: "";
-    position: absolute;
-    bottom: 0;
-    right: 100%;
-    display: block;
-    width: 10px;
-    height: 10px;
-    background: radial-gradient(20px at top left, transparent 50%, #EFEFEF 0) no-repeat right bottom;
 }
 
 .name {
@@ -32,16 +21,5 @@
 
 .myMessageBlock {
     justify-content: end;
-    margin-left: 50px;
-}
-
-.message {
-    background: #e4f0ff;
-    border-radius: 7px 7px 0 7px;
-}
-
-.message::after {
-    left: 100%;
-    background: radial-gradient(20px at top right, transparent 50%, #0077FF0F 0) no-repeat left bottom;
 }
 

@@ -6,7 +6,8 @@ import {chatAPI} from "../../api/chat.api/chat-api";
 
 const initialState = {
     message: "",
-    messages: [] as MessageType[]
+    messages: [] as MessageType[],
+    chatViewed: false
 }
 
 //reducer
@@ -16,7 +17,10 @@ export const chatReducer = (state: ChatStateType = initialState, action: ChatAct
             return {...state, messages: action.messages}
         }
         case "chat/SetNewMessage": {
-            return {...state, messages: [...state.messages, action.message]}
+            return {...state, messages: [...state.messages, action.message], message: action.message.message}
+        }
+        case "chat/setChatViewed": {
+            return {...state, message: "", chatViewed: action.viewed}
         }
         default:
             return state;
@@ -35,6 +39,14 @@ export const setNewMessageAC = (message: MessageType) => {
     return {
         type: 'chat/SetNewMessage',
         message
+    } as const
+}
+
+
+export const setChatViewedAC = (viewed:boolean) => {
+    return {
+        type: 'chat/setChatViewed',
+        viewed
     } as const
 }
 
@@ -71,6 +83,7 @@ export const disconnect = (): AppThunk => (dispatch) => {
 type ChatStateType = typeof initialState;
 type ChatActionsType = ReturnType<typeof setMessagesAC>
     | ReturnType<typeof setNewMessageAC>
+    | ReturnType<typeof setChatViewedAC>
 
 
 

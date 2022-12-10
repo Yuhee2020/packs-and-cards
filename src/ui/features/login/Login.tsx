@@ -33,7 +33,9 @@ type FormikValuesType = {
 }
 
 const Login = () => {
+
     const dispatch = useAppDispatch()
+
     useEffect(()=>{
         dispatch(changePasswordRecoveryStatusAC(false,""))
     },[dispatch])
@@ -94,6 +96,7 @@ const Login = () => {
                                     {...formik.getFieldProps('email')}
                                 />
                                 <TextField
+                                    autoComplete={''}
                                     label="Password"
                                     helperText={formik.touched.password && !!formik.errors.password ? formik.errors.password : " "}
                                     variant="standard"

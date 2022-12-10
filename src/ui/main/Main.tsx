@@ -9,6 +9,7 @@ import {Chat} from "../features/chat/Chat";
 
 const Main = () => {
     const status = useAppSelector((state) => state.app.status)
+    const isLoggedIn=useAppSelector(state => state.auth.isLoggedIn)
     return (
         <div>
             <Backdrop open={status === 'loading'} sx={{color: '#fff', zIndex: 10}}>
@@ -17,7 +18,7 @@ const Main = () => {
             <ErrorSnackbar/>
             <Header/>
             <Routing/>
-            <Chat/>
+            {isLoggedIn && <Chat/>}
         </div>
     )
 }
