@@ -1,16 +1,16 @@
 {
   "files": {
-    "main.css": "/packs-and-cards/static/css/main.4d5e6cec.css",
-    "main.js": "/packs-and-cards/static/js/main.8ac81f16.js",
+    "main.css": "/packs-and-cards/static/css/main.bd25dc5e.css",
+    "main.js": "/packs-and-cards/static/js/main.d9954c21.js",
     "static/js/787.c0ae58bc.chunk.js": "/packs-and-cards/static/js/787.c0ae58bc.chunk.js",
     "static/media/Homer_Simpson.webp": "/packs-and-cards/static/media/Homer_Simpson.c6258fef05bea9f17d11.webp",
     "index.html": "/packs-and-cards/index.html",
-    "main.4d5e6cec.css.map": "/packs-and-cards/static/css/main.4d5e6cec.css.map",
-    "main.8ac81f16.js.map": "/packs-and-cards/static/js/main.8ac81f16.js.map",
+    "main.bd25dc5e.css.map": "/packs-and-cards/static/css/main.bd25dc5e.css.map",
+    "main.d9954c21.js.map": "/packs-and-cards/static/js/main.d9954c21.js.map",
     "787.c0ae58bc.chunk.js.map": "/packs-and-cards/static/js/787.c0ae58bc.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.4d5e6cec.css",
-    "static/js/main.8ac81f16.js"
+    "static/css/main.bd25dc5e.css",
+    "static/js/main.d9954c21.js"
   ]
 }
