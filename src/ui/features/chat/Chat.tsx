@@ -9,11 +9,11 @@ import {Badge, IconButton} from "@mui/material";
 
 export const Chat = () => {
     const dispatch = useAppDispatch();
-    // const [chatViewed, setChatViewed] = useState(false);
     const name = useAppSelector(state => state.profile.name);
     const userId = useAppSelector(state => state.profile._id);
     const newMessage = useAppSelector(state => state.chat.message);
     const chatViewed =useAppSelector(state => state.chat.chatViewed);
+
 
     const badgeContent = newMessage? "!" : null
 

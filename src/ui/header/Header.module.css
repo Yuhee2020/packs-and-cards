@@ -1,3 +1,13 @@
 .cards{
     width: 50px;
 }
+
+.crumbs {
+    margin-right: 150px !important;
+}
+
+@media (max-width: 500px) {
+    .crumbs{
+        margin-right: 0 !important;
+    }
+}

@@ -7,6 +7,7 @@ import GrainIcon from "@mui/icons-material/Grain";
 import {PACKS, PROFILE, USERS} from "../routing/Routing";
 import {useAppDispatch} from "../../utils/hooks";
 import {setChatViewedAC} from "../../store/reducers/chat-reducer";
+import s from './Header.module.css'
 
 
 export const BreadCrumbs = () => {
@@ -18,7 +19,7 @@ export const BreadCrumbs = () => {
     }
 
     return (
-        <Breadcrumbs style={{marginRight: "150px"}}>
+        <Breadcrumbs className={s.crumbs} >
             <Link
                 underline="hover"
                 sx={{display: 'flex', alignItems: 'center'}}

@@ -7,13 +7,20 @@ import RightZone from "./RightZone";
 
 const Header = () => {
 
-    return (<Box sx={{ flexGrow: 1 }}>
-        <AppBar position="static">
+    const mediaQuery = window.matchMedia('(min-width: 920px)')
+
+    return (<Box>
+        <AppBar position="relative">
             <Toolbar style={{display:"flex", justifyContent:"space-between"}}>
-                <div style={{display:"flex", justifyContent:"center", alignItems:"center"}}><img className={s.cards} src={cards} alt={"cards"}/>
+                {mediaQuery.matches &&
+                    <div style={{display: "flex", justifyContent: "center", alignItems: "center"}}><img className={s.cards}
+                                                                                                     src={cards}
+                                                                                                     alt={"cards"}/>
                     <Typography variant="h6" component="div" fontSize={'24px'}>
                         Packs and cards
-                    </Typography></div>
+                    </Typography>
+                </div>
+                }
                 <BreadCrumbs/>
                 <RightZone/>
             </Toolbar>
